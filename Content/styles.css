@@ -62,7 +62,6 @@ body {
 
 .text-container {
     text-align: center;
-    display: none;
 }
 
 .text-container h1 {
@@ -99,6 +98,7 @@ body {
 }
 
 /* Player Selection */
+
 .player-container {
     display: flex;
     flex-direction: column;
@@ -107,7 +107,7 @@ body {
 }
 
 .player-entry {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
