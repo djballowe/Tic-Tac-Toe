@@ -122,25 +122,39 @@ body {
 
 .play-again {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    margin-top: 90px;
 }
 
 .play-again button {
-    margin-top: 50px;
-    height: 50px;
-    width: 200px;
     background-color: white;
-    border: 3px solid #6998AB;
+    border: 3px solid #6998ab8e;
     font-size: 25px;
     cursor: pointer;
-    color: #6998AB;
+    color: #6998ab8e;
 }
 
 .play-again button:hover {
     background-color: #6998AB;
     color: white;
 }
+
+#play-again {
+    display: none;
+    height: 50px;
+    width: 200px;
+}
+
+#back {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+
+}
+
 
 .draw-x {
     font-size: 100px;
