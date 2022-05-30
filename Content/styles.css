@@ -69,9 +69,23 @@ body {
 
 .text-container p {
     font-size: 40px;
-    color: #6998AB;
+    color: #406882;
 }
 
-.text-container button {
-    
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons button {
+    margin-top: 30px;
+    height: 50px;
+    width: 200px;
+    background-color: white;
+    border: 3px solid #6998AB;
+    font-size: 25px;
+    cursor: pointer;
+    color: #6998AB;
 }
