@@ -1,12 +1,51 @@
-const buttonListener = document.querySelectorAll('button');
-const player = document.getElementById('menu');
-const game = document.getElementById('tic');
+// three main functions game, player, and game board objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // button listener functions
+const buttonListener = document.querySelectorAll('button');
 
 buttonListener.forEach((button) => {
     button.addEventListener('click', () => {
+        const player = document.getElementById('menu');
+        const game = document.getElementById('tic');
         if (button.id === 'player' || button.id === 'computer') {
             // player function whatever
             player.style.display = 'none';
@@ -20,3 +59,4 @@ buttonListener.forEach((button) => {
         }
     })
 })
+
