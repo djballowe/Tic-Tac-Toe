@@ -58,6 +58,7 @@ buttonListener.forEach((button) => {
             // reset the game whatever
             player.style.display = 'block';
             game.style.display = 'none';
+            difficulty.style.display = 'none';
         } else if (button.id === 'submit') {
             // start the game whatever
             nameEntry.style.display = 'none';
