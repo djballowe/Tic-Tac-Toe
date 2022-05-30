@@ -98,6 +98,53 @@ body {
     color: white;
 }
 
+/* Player Selection */
+
+.player-container {
+    display: flex;
+}
+
+.player-entry {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-entry h1 {
+    color: #1A374D;
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+.player-entry input {
+    border: 3px solid #6998ab8e;
+    padding: 10px;
+}
+
+.player-entry button {
+    background-color: white;
+    border: 3px solid #6998ab8e;
+    font-size: 25px;
+    cursor: pointer;
+    color: #6998ab8e;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.player-entry button:hover {
+    background-color: #6998AB;
+    color: white;
+}
+
+.player1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* Game */
 
 .game {
