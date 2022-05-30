@@ -148,6 +148,34 @@ body {
     align-items: center;
 }
 
+/* Computer Selection */
+
+.computer-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #1A374D;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.computer-select button {
+    background-color: white;
+    border: 3px solid #6998ab8e;
+    font-size: 25px;
+    cursor: pointer;
+    color: #6998ab8e;
+    height: 50px;
+    width: 200px;
+    margin-top: 40px;
+}
+
+.computer-select button:hover {
+    background-color: #6998AB;
+    color: white;
+}
+
 /* Game */
 
 .game {
