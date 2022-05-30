@@ -45,7 +45,7 @@ table {
 /* main CSS */
 
 body {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
 }
 
 .wrapper {
@@ -104,13 +104,16 @@ body {
     gap: 10px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto-fit, 1fr);
+    background-color: #1a374da3;
 }
 
 .square {
     height: 150px;
     width: 150px;
-    background-color: #1A374D;
+    background-color: white;
 }
+
+
 
 .play-again {
     display: flex;
