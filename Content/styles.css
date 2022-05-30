@@ -145,10 +145,12 @@ body {
 .draw-x {
     font-size: 100px;
     color: #6998AB;
+    display: none;
 }
 
 .draw-o {
     display: none;
     font-size: 100px;
     color: #406882;
+    display: none;
 }
