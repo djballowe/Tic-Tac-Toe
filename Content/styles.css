@@ -51,7 +51,7 @@ body {
 .wrapper {
    margin-inline: auto;
    width: min(90%, 60rem);
-   margin-top: 200px;
+   margin-top: 150px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -99,21 +99,26 @@ body {
 
 /* Game */
 
+.game {
+    display: none;
+}
+
 .board {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto-fit, 1fr);
-    background-color: #1a374da3;
+    background-color: #1a374d3e;
 }
 
 .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 150px;
     width: 150px;
     background-color: white;
 }
-
-
 
 .play-again {
     display: flex;
@@ -135,4 +140,15 @@ body {
 .play-again button:hover {
     background-color: #6998AB;
     color: white;
+}
+
+.draw-x {
+    font-size: 100px;
+    color: #6998AB;
+}
+
+.draw-o {
+    display: none;
+    font-size: 100px;
+    color: #406882;
 }
