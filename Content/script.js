@@ -47,20 +47,32 @@ buttonListener.forEach((button) => {
         const player = document.getElementById('menu');
         const game = document.getElementById('tic');
         const nameEntry = document.getElementById('entry');
-        const computer = document.getElementById('computer')
-        switch (button.id) {
-            case 'player':
-                player.style.display = 'none';
-                nameEntry.style.display = 'block';
-            case 'computer':
-                player.style.display = 'none';
-                computer.style.display = 'block';
-            case 'submit':
-                game.style.display = 'block';
-                nameEntry.style.display = 'none';
-            case 'back':
-                location.reload();
-
+        const difficulty = document.getElementById('difficulty');
+        if (button.id === 'player') {
+            // player function whatever
+            player.style.display = 'none';
+            nameEntry.style.display = 'block';
+        } else if (button.id === 'play-again') {
+            // reset the game whatever
+        } else if (button.id === 'back') {
+            // reset the game whatever
+            player.style.display = 'block';
+            game.style.display = 'none';
+        } else if (button.id === 'submit') {
+            // start the game whatever
+            nameEntry.style.display = 'none';
+            game.style.display = 'block';
+        } else if (button.id === 'computer') {
+            player.style.display = 'none';
+            difficulty.style.display = 'flex';
+        } else if (button.id === 'normal') {
+            // do normal AI whatever
+            game.style.display = 'block'
+            difficulty.style.display = 'none';
+        } else if (button.id === 'impossible') {
+            // do impossible AI whatever
+            game.style.display = 'block';
+            difficulty.style.display = 'none';
         }
     })
 })
