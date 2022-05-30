@@ -45,13 +45,33 @@ table {
 /* main CSS */
 
 body {
-    background-color: #B1D0E0;
+    background-color: #ffffff;
 }
 
 .wrapper {
-    
+   margin-inline: auto;
+   width: min(90%, 60rem);
+   margin-top: 200px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center; 
+}
+
+.text-container {
+    text-align: center;
 }
 
 .text-container h1 {
     color: #1A374D;
+    font-size: 100px;
+}
+
+.text-container p {
+    font-size: 40px;
+    color: #6998AB;
+}
+
+.text-container button {
+    
 }
