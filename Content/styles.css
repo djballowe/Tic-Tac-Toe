@@ -58,6 +58,8 @@ body {
    align-items: center; 
 }
 
+/* Game choice menu */
+
 .text-container {
     text-align: center;
 }
@@ -94,3 +96,6 @@ body {
     background-color: #6998AB;
     color: white;
 }
+
+/* Game */
+
