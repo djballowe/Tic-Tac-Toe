@@ -89,3 +89,8 @@ body {
     cursor: pointer;
     color: #6998AB;
 }
+
+.buttons button:hover {
+    background-color: #6998AB;
+    color: white;
+}
