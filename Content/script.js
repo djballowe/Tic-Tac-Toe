@@ -3,13 +3,14 @@ const player = document.getElementById('menu');
 const game = document.getElementById('tic');
 
 
+// button listener functions
+
 buttonListener.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.id === 'player' || button.id === 'computer') {
             // player function whatever
             player.style.display = 'none';
             game.style.display = 'block';
-
         } else if (button.id === 'play-again') {
             // reset the game whatever
         } else if (button.id === 'back') {
