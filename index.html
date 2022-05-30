@@ -12,15 +12,15 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="text-container">
+        <div class="text-container" id="menu">
             <h1>Tic-Tac-Toe</h1>
             <p>Choose Game</p>
             <div class="buttons">
-                <button>VS Player</button>
-                <button>VS Computer</button>
+                <button id="player">VS Player</button>
+                <button id="computer">VS Computer</button>
             </div>
         </div>
-        <div class="game">
+        <div class="game" id="tic">
             <div class="board">
                 <div class="square" id="top-left">
                     <div class="draw-x">X</div>
@@ -60,10 +60,11 @@
                 </div>
             </div>
             <div class="play-again">
-                <button>Play Again?</button>
-                <button>Back</button>
+                <button id="play-again">Play Again?</button>
+                <button id="back">Back</button>
             </div>
         </div>
     </div>
+    <script src="Content/script.js"></script>
 </body>
 </html>
