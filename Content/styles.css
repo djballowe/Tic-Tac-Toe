@@ -161,14 +161,15 @@ body {
 }
 
 .computer-select button {
-    background-color: white;
-    border: 3px solid #6998ab8e;
     font-size: 25px;
     cursor: pointer;
     color: #6998ab8e;
     height: 50px;
     width: 200px;
     margin-top: 40px;
+    background-color: white;
+    border: 3px solid #6998AB;
+    color: #6998AB;
 }
 
 .computer-select button:hover {
@@ -231,7 +232,8 @@ body {
     align-items: center;
     height: 50px;
     width: 50px;
-
+    border: 3px solid #6998ab8e;
+    color: #6998ab8e;
 }
 
 .draw-x {
