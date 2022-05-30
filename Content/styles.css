@@ -99,9 +99,11 @@ body {
 }
 
 /* Player Selection */
-
 .player-container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .player-entry {
@@ -131,7 +133,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .player-entry button:hover {
