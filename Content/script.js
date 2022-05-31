@@ -1,4 +1,14 @@
 // three main functions game, player, and game board objects
+function createPlayer() {
+    let name1 = document.getElementById('p1').value
+    let name2 = document.getElementById('p2').value
+    
+    const Players = (name) => {
+        
+    }
+}
+
+createPlayer();
 
 
 
