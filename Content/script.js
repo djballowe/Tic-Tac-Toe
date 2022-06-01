@@ -1,33 +1,35 @@
 // Create Player Function
 function gamers() {
-    const name1 = document.getElementById('p1').value
-    const name2 = document.getElementById('p2').value
-    const submit = document.getElementById('submit');
+    const name1 = document.getElementById('p1');
+    const name2 = document.getElementById('p2');
     
-
-    submit.addEventListener('click', 
-    function() {
-        Players(name1);
-        name1.value = '';
-    })
+    
     
     const Players = (name, assignment) => {
-        
         return {name, assignment};
     }
 
-    const player1 = Players(name1, 'X');
-    const player2 = Players(name2, 'O');
+    const player1 = Players(name1.value, 'X');
+    const player2 = Players(name2.value, 'O');
         console.log(player1);
         console.log(player2);
+
 }
 
-gamers();
+
 
 
 
 // button listener functions
 const buttonListener = document.querySelectorAll('button');
+const name1 = document.getElementById('p1');
+const name2 = document.getElementById('p2');
+submit.addEventListener('click', 
+    function() {
+        gamers();
+        name1.value = '';
+        name2.value = '';
+    })
 
 buttonListener.forEach((button) => {
     button.addEventListener('click', () => {
