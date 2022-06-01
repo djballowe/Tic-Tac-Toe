@@ -1,10 +1,16 @@
 // Create Player Function
-let players = [];
+
 
 function playerCreation() {
     const name1 = document.getElementById('p1');
     const name2 = document.getElementById('p2');
     
+    submit.addEventListener('click', 
+    function() {
+        playerCreation();
+        name1.value = '';
+        name2.value = '';
+    })
 
     function Players(n, character) {
         return {n, character};
@@ -12,14 +18,9 @@ function playerCreation() {
     
     const player1 = Players(name1.value, 'X');
     const player2 = Players(name2.value, 'O');
-    players.push(player1);
-    players.push(player2);
-    console.log(players);
 }
 
-function gameBoard() {
-    
-}
+
 
 
 
