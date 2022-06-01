@@ -1,11 +1,24 @@
-// three main functions game, player, and game board objects
-function createPlayer() {
-    let name1 = document.getElementById('p1').value
-    let name2 = document.getElementById('p2').value
+// Create Player Function
+function gamers() {
+    const name1 = document.getElementById('p1').value
+    const name2 = document.getElementById('p2').value
+    const submit = document.getElementById('submit');
     
-    const Players = (name) => {
-        
+
+    
+    const Players = (name, assignment) => {
+        const name = submit.addEventListener('click', () => {
+            name1
+        })
+        return {name, assignment};
     }
+    
+
+        const player1 = Players(name1, 'X');
+        const player2 = Players(name2, 'O');
+        console.log(player1);
+        console.log(player2);
+    
 }
 
 createPlayer();
