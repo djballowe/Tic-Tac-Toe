@@ -22,6 +22,9 @@ function playerCreation() {
 }
 
 function stateOfPlay() {
+    let counter = 0;
+    const markX = document.createElement('div').textContent = 'O';
+    const markO = document.createElement('div').textContent = 'X';
     
 }
 
