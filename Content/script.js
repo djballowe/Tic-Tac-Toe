@@ -18,8 +18,11 @@ function playerCreation() {
     
     const player1 = Players(name1.value, 'X');
     const player2 = Players(name2.value, 'O');
+    console.log(player1)
+    console.log(player2)
 }
 
+playerCreation();
 
 
 
@@ -29,14 +32,7 @@ function playerCreation() {
 
 
 // button listener functions
-const name1 = document.getElementById('p1');
-const name2 = document.getElementById('p2');
-submit.addEventListener('click', 
-    function() {
-        playerCreation();
-        name1.value = '';
-        name2.value = '';
-    })
+
 const buttonListener = document.querySelectorAll('button');
 buttonListener.forEach((button) => {
     button.addEventListener('click', () => {
