@@ -26,21 +26,26 @@ function stateOfPlay() {
     let counter = 0;
     const players = playerCreation();
 
+    const game = [0, 0, 0,
+                  0, 0, 0,
+                  0, 0, 0]
+
     const board = (index, type) => {
     
-        const game = {0: 0, 1: 0, 2: 0,
-                  3: 0, 4: 0, 5: 0,
-                  6: 0, 7: 0, 8: 0}
-    
         if (type === 'X') {
-            game[`${index}`] = 1;
+            game[index] = 1;
         } else if (type === 'O') {
-            game[`${index}`] = 2;
+            game[index] = 2;
         }
-        return game;
+        console.log(game);
     }
+
     
 
+    function winCheck() {
+        console.log(board);
+    }
+    
 
 
 
@@ -66,7 +71,7 @@ function stateOfPlay() {
                 target.appendChild(divFactory('div', {class: 'draw-o',}, 'O'));
             }
         }
-
+        
 
 
     document.querySelector('body').addEventListener('click', function(e) {
@@ -76,8 +81,9 @@ function stateOfPlay() {
             
             if (counter % 2 !=0) {
                 console.log('odd');
-                placeeDivs(1, e.target.id);
+                placeDivs(1, e.target.id);
                 board(index, 'X');
+                
             } else if (counter % 2 === 0) {
                 console.log('even');
                 placeDivs(2, e.target.id);
@@ -88,7 +94,6 @@ function stateOfPlay() {
             console.log('you retard')
         }
     })
-
 }
 
 stateOfPlay();
