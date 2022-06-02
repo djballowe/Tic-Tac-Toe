@@ -23,32 +23,34 @@ function playerCreation() {
 
 function stateOfPlay() {
     let counter = 0;
-    const markX = document.createElement('div');
-    const markO = document.createElement('div');
+
+    const divFactory = (type, attributes, text) => {
+        const create = document.createElement(type);
+        create.textContent = text;
+        for (key in attributes) {
+            create.setAttribute(key, attributes[key]);
+        }
+        return create;
+    }
 
     
     
      const makeDivs = (turn, id) => {
-        console.log(id);
+        console.log(`target id is ${id}`);
         const target = document.querySelector(`#${id}`);
-        console.log(turn);
+        console.log(`turn counter is ${turn}`);
+            
             if (turn === 1 && target.childElementCount === 0) {
-                markX.classList.add('draw-x');
-                markX.textContent = 'X'
-                target.appendChild(markX);
+                target.appendChild(divFactory('div', {class: 'draw-x'}, 'X'));
             } else if (turn === 2 && target.childElementCount === 0) {
-                markO.classList.add('draw-o');
-                markO.textContent = 'O';
-                target.appendChild(markO);
-            } else if (target.childElementCount === 1) {
-                return 'you retard';
+                target.appendChild(divFactory('div', {class: 'draw-o',}, 'O'));
             }
-    }
+        }
 
 
 
     document.querySelector('body').addEventListener('click', function(e) {
-        if (e.target.getAttribute('data') === 'square') {
+        if (e.target.getAttribute('data') === 'square' && e.target.childElementCount === 0) {
             counter ++;
             
             if (counter % 2 !=0) {
@@ -58,6 +60,8 @@ function stateOfPlay() {
                 console.log('even');
                 makeDivs(2, e.target.id);
             }
+        } else {
+            console.log('you retard')
         }
     })
     
