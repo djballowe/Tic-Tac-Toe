@@ -25,6 +25,35 @@ function playerCreation() {
 function stateOfPlay() {
     let counter = 0;
 
+    const board = (index) => {
+    let game = {0: 0, 1: 0, 2: 0,
+                3: 0, 4: 0, 5: 0,
+                6: 0, 7: 0, 8: 0}
+    
+    const winningCombos = [0, 4, 8,
+                           8, 4, 0,
+                           6, 4, 2,
+                           2, 4, 6,
+                           0, 3, 6,
+                           6, 3, 0,
+                           1, 4, 7,
+                           7, 4, 1,
+                           2, 5, 8,
+                           8, 5, 2,
+                           6, 7, 8,
+                           8, 7, 6,
+                           3, 4, 5,
+                           5, 4, 3,
+                           0, 1, 2,
+                           2, 1, 0]
+        return game;
+}
+
+    const game = board();
+    console.log(game);
+
+
+
     const divFactory = (type, attributes, text) => {
         const create = document.createElement(type);
         create.textContent = text;
@@ -65,7 +94,6 @@ function stateOfPlay() {
             console.log('you retard')
         }
     })
-    
 
 }
 
