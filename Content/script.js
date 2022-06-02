@@ -48,14 +48,20 @@ function stateOfPlay() {
         } else if (type === 'O') {
             game[index] = 2;
         }
-        winCheck();
+        winCheck(game);
     }
 
-    console.log([winningCombos[0].map(x => game[x])]);
+    
 
-    function winCheck() {
+    function winCheck(gamers) {
+        console.log(gamers);
         for (let i = 0; i < winningCombos.length; i++) {
-            console.log(winningCombos[i].map(x => game[x]));
+            check = (winningCombos[i].map(x => gamers[x]));
+            if (check === [1, 1, 1]) {
+                console.log('Player 1 wins');
+            } else if (check === [2, 2, 2]) {
+                console.log('Player 2 wins');
+            }
             
         }
     }
@@ -72,9 +78,7 @@ function stateOfPlay() {
     
     
      const placeDivs = (turn, id) => {
-        console.log(`target id is ${id}`);
         const target = document.querySelector(`#${id}`);
-        console.log(`turn counter is ${turn}`);
             
             if (turn === 1 && target.childElementCount === 0) {
                 target.appendChild(divFactory('div', {class: 'draw-x'}, 'X'));
