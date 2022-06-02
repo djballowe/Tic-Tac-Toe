@@ -26,22 +26,34 @@ function stateOfPlay() {
     const markX = document.createElement('div');
     const markO = document.createElement('div');
     
-    const makeDivs = (turn, id) => {
-        const target = document.getElementById(`${id}`);
-        if (turn === 1 && target.childElementCount === 0) {
-            document.querySelector(`#${id}`);
-            markX.classList.add('draw-x');
-            markX.textContent = 'X'
-            target.appendChild(markX);
-        } else if (turn === 2 && target.childElementCount === 0) {
-            document.querySelector(`#${id}`);
-            markO.classlist.add('draw-o');
-            markO.textContent = 'X'
-            target.appendChild(markO);
-        } else {
-            return 'you retard';
+    function makeDiv(turn, id) {
+        function X () {
+
         }
+
     }
+
+    const X = makeDiv()
+    
+    
+    // const makeDivs = (turn, id) => {
+    //     const target = document.getElementById(`${id}`);
+    //     if (turn === 1 && target.childElementCount === 0) {
+    //         document.querySelector(`#${id}`);
+    //         markX.classList.add('draw-x');
+    //         markX.textContent = 'X'
+    //         target.appendChild(markX);
+    //     } else if (turn === 2 && target.childElementCount === 0) {
+    //         document.querySelector(`#${id}`);
+    //         markO.classlist.add('draw-o');
+    //         markO.textContent = 'X'
+    //         target.appendChild(markO);
+    //     } else {
+    //         return 'you retard';
+    //     }
+    // }
+
+    
 
     document.querySelector('body').addEventListener('click', function(e) {
         if (e.target.getAttribute('data') === 'square') {
@@ -49,10 +61,10 @@ function stateOfPlay() {
             
             if (counter % 2 !=0) {
                 console.log('odd');
-                makeDivs(1, e.target.id);
+                makeDiv(1, e.target.id);
             } else if (counter % 2 === 0) {
                 console.log('even');
-                makeDivs(2, e.target.id);
+                makeDiv(2, e.target.id);
             }
         }
     })
