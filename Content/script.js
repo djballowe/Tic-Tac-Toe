@@ -23,18 +23,20 @@ function playerCreation() {
 
 function stateOfPlay() {
     let counter = 0;
-    const markX = document.createElement('div').textContent = 'O';
-    const markO = document.createElement('div').textContent = 'X';
+    const markX = document.createElement('div');
+    const markO = document.createElement('div');
     
     const makeDivs = (turn, id) => {
         const target = document.getElementById(`${id}`);
         if (turn === 1 && target.childElementCount === 0) {
             document.querySelector(`#${id}`);
             markX.classList.add('draw-x');
+            markX.textContent = 'X'
             target.appendChild(markX);
         } else if (turn === 2 && target.childElementCount === 0) {
             document.querySelector(`#${id}`);
             markO.classlist.add('draw-o');
+            markO.textContent = 'X'
             target.appendChild(markO);
         } else {
             return 'you retard';
