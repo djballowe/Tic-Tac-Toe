@@ -26,8 +26,8 @@ function stateOfPlay() {
     const markX = document.createElement('div').textContent = 'O';
     const markO = document.createElement('div').textContent = 'X';
     
-    const makeDivs = (turn) => {
-        const target = document.getElementById(`${targetSnatcher.id}`);
+    const makeDivs = (turn, id) => {
+        const target = document.getElementById(`${id}`);
         if (turn === 1 && target.childElementCount === 0) {
             document.querySelector(`#${id}`);
             markX.classList.add('draw-x');
@@ -40,27 +40,21 @@ function stateOfPlay() {
             return 'you retard';
         }
     }
-    
-    const checkPlayer = (count) => {
-        if (count % 2 != 0) {
-            makeDivs(1);
-        }
-        if (count % 2 === 0) {
-            makeDivs(2);
-        }
-    }
-
-    const targetSnatcher = (id) => {
-        return {id}
-    }
 
     document.querySelector('body').addEventListener('click', function(e) {
         if (e.target.getAttribute('data') === 'square') {
             counter ++;
-            targetSnatcher(e.target.id);
-            checkPlayer(counter);
+            
+            if (counter % 2 !=0) {
+                console.log('odd');
+                makeDivs(1, e.target.id);
+            } else if (counter % 2 === 0) {
+                console.log('even');
+                makeDivs(2, e.target.id);
+            }
         }
     })
+    
 
 }
 
