@@ -41,7 +41,6 @@ function stateOfPlay() {
         [0, 4, 6]
     ]
 
-
     const board = (index, type) => {
     
         if (type === 'X') {
@@ -55,7 +54,10 @@ function stateOfPlay() {
     
 
     function winCheck(currentBoard) {
-        
+        for (let i = 0; i < winningCombos.length; i++) {
+            const winningIndex = winningCombos[i];
+        }
+        console.log(game[winningIndex[0]]);
     }
     
     const divFactory = (type, attributes, text) => {
