@@ -48,16 +48,16 @@ function stateOfPlay() {
         } else if (type === 'O') {
             game[index] = 2;
         }
-        winCheck(game);
+        winCheck();
     }
 
-    
+    console.log([winningCombos[0].map(x => game[x])]);
 
-    function winCheck(currentBoard) {
+    function winCheck() {
         for (let i = 0; i < winningCombos.length; i++) {
-            const winningIndex = winningCombos[i];
+            console.log(winningCombos[i].map(x => game[x]));
+            
         }
-        console.log(game[winningIndex[0]]);
     }
     
     const divFactory = (type, attributes, text) => {
