@@ -54,12 +54,8 @@ function stateOfPlay() {
 
     
 
-    function winCheck() {
-        return winningCombos.some(combination => {
-            return combination.every(index => {
-                
-            })
-        })
+    function winCheck(currentBoard) {
+        
     }
     
     const divFactory = (type, attributes, text) => {
