@@ -36,12 +36,11 @@ function stateOfPlay() {
                 markX.classList.add('draw-x');
                 markX.textContent = 'X'
                 target.appendChild(markX);
-            } else if (turn === 2 && target.childElementCount === 1) {
-                document.querySelector(`#${id}`);
-                markO.classlist.add('draw-o');
-                markO.textContent = 'X';
+            } else if (turn === 2 && target.childElementCount === 0) {
+                markO.classList.add('draw-o');
+                markO.textContent = 'O';
                 target.appendChild(markO);
-            } else {
+            } else if (target.childElementCount === 1) {
                 return 'you retard';
             }
     }
