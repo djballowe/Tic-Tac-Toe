@@ -1,5 +1,4 @@
-// Create Player Function
-
+// Create and return the players names
 
 function playerCreation() {
     const name1 = document.getElementById('p1');
@@ -21,6 +20,8 @@ function playerCreation() {
     return [player1, player2];
 }
 
+// control the state of the game when placing marks 
+
 function stateOfPlay() {
     let counter = 0;
 
@@ -35,7 +36,7 @@ function stateOfPlay() {
 
     
     
-     const makeDivs = (turn, id) => {
+     const placeDivs = (turn, id) => {
         console.log(`target id is ${id}`);
         const target = document.querySelector(`#${id}`);
         console.log(`turn counter is ${turn}`);
@@ -55,10 +56,10 @@ function stateOfPlay() {
             
             if (counter % 2 !=0) {
                 console.log('odd');
-                makeDivs(1, e.target.id);
+                placeeDivs(1, e.target.id);
             } else if (counter % 2 === 0) {
                 console.log('even');
-                makeDivs(2, e.target.id);
+                placeDivs(2, e.target.id);
             }
         } else {
             console.log('you retard')
