@@ -27,7 +27,7 @@ function stateOfPlay() {
     const markO = document.createElement('div').textContent = 'X';
     
     const makeDivs = (turn) => {
-        const target = document.getElementById(id);
+        const target = document.getElementById(`${targetSnatcher.id}`);
         if (turn === 1 && target.childElementCount === 0) {
             document.querySelector(`#${id}`);
             markX.classList.add('draw-x');
@@ -50,13 +50,21 @@ function stateOfPlay() {
         }
     }
 
-    const id = document.querySelector('body').addEventListener('click', function(e) {
-        counter ++;
-        checkPlayer(count);
-        return e.target.id;
+    const targetSnatcher = (id) => {
+        return {id}
     }
+
+    document.querySelector('body').addEventListener('click', function(e) {
+        if (e.target.getAttribute('data') === 'square') {
+            counter ++;
+            targetSnatcher(e.target.id);
+            checkPlayer(counter);
+        }
+    })
+
 }
 
+stateOfPlay();
 
 
 
