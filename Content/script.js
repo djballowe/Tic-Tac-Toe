@@ -25,32 +25,20 @@ function playerCreation() {
 function stateOfPlay() {
     let counter = 0;
 
-    const board = (index) => {
-    let game = {0: 0, 1: 0, 2: 0,
-                3: 0, 4: 0, 5: 0,
-                6: 0, 7: 0, 8: 0}
+    const board = (index, type) => {
     
-    const winningCombos = [0, 4, 8,
-                           8, 4, 0,
-                           6, 4, 2,
-                           2, 4, 6,
-                           0, 3, 6,
-                           6, 3, 0,
-                           1, 4, 7,
-                           7, 4, 1,
-                           2, 5, 8,
-                           8, 5, 2,
-                           6, 7, 8,
-                           8, 7, 6,
-                           3, 4, 5,
-                           5, 4, 3,
-                           0, 1, 2,
-                           2, 1, 0]
+        const game = {0: 0, 1: 0, 2: 0,
+                  3: 0, 4: 0, 5: 0,
+                  6: 0, 7: 0, 8: 0}
+    
+        if (type === 'X') {
+            game[`${index}`] = 1;
+        } else if (type === 'O') {
+            game[`${index}`] = 2;
+        }
         return game;
-}
+    }
 
-    const game = board();
-    console.log(game);
 
 
 
@@ -80,15 +68,19 @@ function stateOfPlay() {
 
 
     document.querySelector('body').addEventListener('click', function(e) {
+        const index = e.target.getAttribute('data-type');
         if (e.target.getAttribute('data') === 'square' && e.target.childElementCount === 0) {
             counter ++;
             
             if (counter % 2 !=0) {
                 console.log('odd');
                 placeeDivs(1, e.target.id);
+                board(index, 'X');
             } else if (counter % 2 === 0) {
                 console.log('even');
                 placeDivs(2, e.target.id);
+                board(index, 'O');
+
             }
         } else {
             console.log('you retard')
