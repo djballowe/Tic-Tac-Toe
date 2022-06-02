@@ -24,6 +24,7 @@ function playerCreation() {
 
 function stateOfPlay() {
     let counter = 0;
+    const players = playerCreation();
 
     const board = (index, type) => {
     
@@ -38,6 +39,7 @@ function stateOfPlay() {
         }
         return game;
     }
+    
 
 
 
@@ -98,7 +100,7 @@ stateOfPlay();
 
 
 
-// button listener functions
+// button listener functions for UI navigation
 
 const buttonListener = document.querySelectorAll('button');
 buttonListener.forEach((button) => {
