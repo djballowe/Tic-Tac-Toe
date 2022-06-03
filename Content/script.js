@@ -163,15 +163,18 @@ buttonListener.forEach((button) => {
         } else if (button.id === 'play-again') {
             // reset the game whatever
         } else if (button.id === 'game-back') {
-            // reset the game whatever
+            
             nameEntry.style.display = 'block';
             game.style.display = 'none';
             difficulty.style.display = 'none';
         } else if (button.id === 'submit') {
-            // start the game whatever
-            nameEntry.style.display = 'none';
-            game.style.display = 'block';
-            stateOfPlay();
+            if (name1.value || name2.value === '') {
+                alert('Please Enter Name');
+            } else {
+                nameEntry.style.display = 'none';
+                game.style.display = 'block';
+                stateOfPlay();
+            }
         } else if (button.id === 'computer') {
             player.style.display = 'none';
             difficulty.style.display = 'flex';
