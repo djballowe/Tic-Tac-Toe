@@ -57,20 +57,17 @@ function stateOfPlay() {
         const allCells = document.querySelector('.board'); 
         for (let i = 0; i < winningCombos.length; i++) {
             if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && game[winningCombos[i][2]] === 1) {
-                console.log('p1 win');
                 allCells.classList.add('boardDisable');
                 allCells.classList.remove('board');
             }
 
             if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2 && game[winningCombos[i][2]] === 2) {
-                console.log('p2 win');
                 allCells.classList.add('boardDisable');
                 allCells.classList.remove('board');
 
             }
         }
         if (counter === 9) {
-            console.log('tie');
             allCells.classList.add('boardDisable');
             allCells.classList.remove('board');
         }
