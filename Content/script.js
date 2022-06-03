@@ -11,6 +11,14 @@ function playerCreation(name1, name2) {
     return [player1, player2];
 }
 
+function clearForm(p1, p2) {
+    console.log(p1);
+    console.log(p2);
+    
+    p1 = '';
+    p2 = '';
+}
+
 // control the state of the game when placing marks 
 
 function stateOfPlay() {
@@ -18,7 +26,9 @@ function stateOfPlay() {
     const name1 = document.getElementById('p1');
     const name2 = document.getElementById('p2');
     let counter = 0;
+
     const players = playerCreation(name1.value, name2.value);
+    
     const game = [0, 0, 0,
                   0, 0, 0,
                   0, 0, 0]
@@ -55,6 +65,7 @@ function stateOfPlay() {
                 allCells.classList.remove('board');
                 displayWinner.textContent = `${players[0].n} Wins!`
                 container.style.display = 'block';
+                clearForm(name1.value, name2.value);
                 
             }
 
@@ -64,6 +75,7 @@ function stateOfPlay() {
                 displayWinner.textContent = `${players[1].n} Wins!`
                 container.style.display = 'block';
                 console.log(players[1].n)
+                clearForm(name1.value, name2.value);
                 
 
             }
@@ -73,6 +85,7 @@ function stateOfPlay() {
             allCells.classList.remove('board');
             displayWinner.textContent = `Tie!`
             container.style.display = 'block';
+            clearForm(name1.value, name2.value);
         }
         
     }
