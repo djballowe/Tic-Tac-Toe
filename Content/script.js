@@ -57,6 +57,8 @@ function stateOfPlay() {
         console.log(gamers);
         for (let i = 0; i < winningCombos.length; i++) {
             check = (winningCombos[i].map(x => gamers[x]));
+            console.log(check);
+
             if (check === [1, 1, 1]) {
                 console.log('Player 1 wins');
             } else if (check === [2, 2, 2]) {
@@ -95,15 +97,12 @@ function stateOfPlay() {
             counter ++;
             
             if (counter % 2 !=0) {
-                console.log('odd');
                 placeDivs(1, e.target.id);
                 board(index, 'X');
                 
             } else if (counter % 2 === 0) {
-                console.log('even');
                 placeDivs(2, e.target.id);
                 board(index, 'O');
-
             }
         } else {
             console.log('you retard')
