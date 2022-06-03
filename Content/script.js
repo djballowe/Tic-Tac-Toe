@@ -55,22 +55,15 @@ function stateOfPlay() {
 
     function winCheck(gamers) {
         console.log(gamers);
-        test = [];
+        let log = {};
         for (let i = 0; i < winningCombos.length; i++) {
-            check = (winningCombos[i].map(x => gamers[x]));
-            test.push(check[i]);
-
-            for (let i = 0; i < check.length; i++) {
-                if (check[i] === [1, 1, 1]) {
-                    console.log('Player 1 wins');
-                } else if (check[i] === [2, 2, 2]) {
-                    console.log('Player 2 wins');
-                }
-            }
+            log[i] = (winningCombos[i].map(x => gamers[x]));
             
-        }
-        console.log(test)
+        } 
+        console.log(log); 
     }
+
+    
     
     const divFactory = (type, attributes, text) => {
         const create = document.createElement(type);
