@@ -62,6 +62,7 @@ function stateOfPlay() {
                 allCells.classList.remove('board');
                 displayWinner.textContent = `${players[0].n} Wins!`
                 container.style.display = 'block';
+                console.log(players)
             }
 
             if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2 && game[winningCombos[i][2]] === 2) {
