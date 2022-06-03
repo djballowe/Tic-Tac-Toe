@@ -190,7 +190,7 @@ buttonListener.forEach((button) => {
             // do impossible AI whatever
             game.style.display = 'block';
             difficulty.style.display = 'none';
-        } 
+        }
     })
 })
 
