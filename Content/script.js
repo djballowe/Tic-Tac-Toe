@@ -38,7 +38,7 @@ function stateOfPlay() {
         [1, 4, 7],
         [2, 5, 8],
         [0, 4, 8],
-        [0, 4, 6]
+        [2, 4, 6]
     ]
 
     const board = (index, type) => {
@@ -57,7 +57,7 @@ function stateOfPlay() {
         const displayWinner = document.getElementById('win');
         const container = document.getElementById('container');
         const playAgain = document.getElementById('play-again');
-        const back = document.getElementById('back');
+        const back = document.getElementById('game-back');
 
         for (let i = 0; i < winningCombos.length; i++) {
             if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && game[winningCombos[i][2]] === 1) {
@@ -92,6 +92,9 @@ function stateOfPlay() {
             back.style.display = 'none';
             clearForm();
         }
+
+        console.log(game);
+
         
     }
 
@@ -168,7 +171,7 @@ buttonListener.forEach((button) => {
             game.style.display = 'none';
             difficulty.style.display = 'none';
         } else if (button.id === 'submit') {
-            if (name1.value || name2.value === '') {
+            if (name1.value.length === 0 || name2.value.length === 0) {
                 alert('Please Enter Name');
             } else {
                 nameEntry.style.display = 'none';
