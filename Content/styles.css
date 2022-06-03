@@ -191,6 +191,15 @@ body {
     background-color: #1a374d3e;
 }
 
+.boardDisable {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    background-color: #1a374d3e;
+    pointer-events: none;
+}
+
 .square {
     display: flex;
     justify-content: center;
