@@ -1,31 +1,24 @@
 // Create and return the players names
 
-function playerCreation() {
-    const name1 = document.getElementById('p1');
-    const name2 = document.getElementById('p2');
-    
-    submit.addEventListener('click', 
-    function() {
-        playerCreation();
-        name1.value = '';
-        name2.value = '';
-    })
+function playerCreation(name1, name2) {
 
     function Players(n, character) {
         return {n, character};
     }
     
-    const player1 = Players(name1.value, 'X');
-    const player2 = Players(name2.value, 'O');
+    const player1 = Players(name1, 'X');
+    const player2 = Players(name2, 'O');
     return [player1, player2];
 }
 
 // control the state of the game when placing marks 
 
 function stateOfPlay() {
+    
+    const name1 = document.getElementById('p1');
+    const name2 = document.getElementById('p2');
     let counter = 0;
-    const players = playerCreation();
-
+    const players = playerCreation(name1.value, name2.value);
     const game = [0, 0, 0,
                   0, 0, 0,
                   0, 0, 0]
@@ -62,7 +55,7 @@ function stateOfPlay() {
                 allCells.classList.remove('board');
                 displayWinner.textContent = `${players[0].n} Wins!`
                 container.style.display = 'block';
-                console.log(players)
+                
             }
 
             if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2 && game[winningCombos[i][2]] === 2) {
@@ -70,13 +63,15 @@ function stateOfPlay() {
                 allCells.classList.remove('board');
                 displayWinner.textContent = `${players[1].n} Wins!`
                 container.style.display = 'block';
+                console.log(players[1].n)
+                
 
             }
         }
         if (counter === 9) {
             allCells.classList.add('boardDisable');
             allCells.classList.remove('board');
-            //displayWinner.textContent = `Tie!`
+            displayWinner.textContent = `Tie!`
             container.style.display = 'block';
         }
         
@@ -124,7 +119,8 @@ function stateOfPlay() {
     })
 }
 
-stateOfPlay();
+
+
 
 
 
@@ -157,6 +153,7 @@ buttonListener.forEach((button) => {
             // start the game whatever
             nameEntry.style.display = 'none';
             game.style.display = 'block';
+            stateOfPlay();
         } else if (button.id === 'computer') {
             player.style.display = 'none';
             difficulty.style.display = 'flex';
@@ -164,6 +161,7 @@ buttonListener.forEach((button) => {
             // do normal AI whatever
             game.style.display = 'block'
             difficulty.style.display = 'none';
+            stateOfPlay();
         } else if (button.id === 'impossible') {
             // do impossible AI whatever
             game.style.display = 'block';
