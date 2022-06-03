@@ -54,22 +54,29 @@ function stateOfPlay() {
     
 
     function winCheck(gamers) {
-        const allCells = document.querySelector('.board'); 
+        const allCells = document.querySelector('.board');
+        const displayWinner = document.getElementById('win'); 
         for (let i = 0; i < winningCombos.length; i++) {
             if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && game[winningCombos[i][2]] === 1) {
                 allCells.classList.add('boardDisable');
                 allCells.classList.remove('board');
+                displayWinner.textContent = `${players[0]} Wins!`
+                displayWinner.style.display = 'block';
             }
 
             if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2 && game[winningCombos[i][2]] === 2) {
                 allCells.classList.add('boardDisable');
                 allCells.classList.remove('board');
+                displayWinner.textContent = `${players[1]} Wins!`
+                displayWinner.style.display = 'block';
 
             }
         }
         if (counter === 9) {
             allCells.classList.add('boardDisable');
             allCells.classList.remove('board');
+            displayWinner.textContent = `Tie!`
+            displayWinner.style.display = 'block';
         }
         
     }
