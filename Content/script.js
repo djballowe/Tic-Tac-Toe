@@ -58,9 +58,12 @@ function stateOfPlay() {
         let log = {};
         for (let i = 0; i < winningCombos.length; i++) {
             log[i] = (winningCombos[i].map(x => gamers[x]));
-            
-        } 
-        console.log(log); 
+        }
+        if (Object.values(log).includes([1, 1, 1])) {
+            console.log('Player 1 Wins');
+        }
+        console.log(Object.values(log).indexOf([1, 1, 1]));
+        console.log(log);
     }
 
     
