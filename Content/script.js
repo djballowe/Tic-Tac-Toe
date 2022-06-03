@@ -14,7 +14,6 @@ function playerCreation(name1, name2) {
 }
 
 function clearForm() {
-    
     name1.value = '';
     name2.value = '';
 }
@@ -56,13 +55,18 @@ function stateOfPlay() {
     function winCheck(gamers) {
         const allCells = document.querySelector('.board');
         const displayWinner = document.getElementById('win');
-        const container = document.getElementById('container') 
+        const container = document.getElementById('container');
+        const playAgain = document.getElementById('play-again');
+        const back = document.getElementById('back');
+
         for (let i = 0; i < winningCombos.length; i++) {
             if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && game[winningCombos[i][2]] === 1) {
                 allCells.classList.add('boardDisable');
                 allCells.classList.remove('board');
                 displayWinner.textContent = `${players[0].n} Wins!`
                 container.style.display = 'block';
+                playAgain.style.display = 'block'
+                back.style.display = 'none'
                 clearForm();
                 
             }
@@ -72,7 +76,8 @@ function stateOfPlay() {
                 allCells.classList.remove('board');
                 displayWinner.textContent = `${players[1].n} Wins!`
                 container.style.display = 'block';
-                console.log(players[1].n)
+                playAgain.style.display = 'block';
+                back.style.display = 'none';
                 clearForm();
                 
 
@@ -83,6 +88,8 @@ function stateOfPlay() {
             allCells.classList.remove('board');
             displayWinner.textContent = `Tie!`
             container.style.display = 'block';
+            playAgain.style.display = 'block';
+            back.style.display = 'none';
             clearForm();
         }
         
@@ -155,9 +162,9 @@ buttonListener.forEach((button) => {
             nameEntry.style.display = 'block';
         } else if (button.id === 'play-again') {
             // reset the game whatever
-        } else if (button.id === 'back') {
+        } else if (button.id === 'game-back') {
             // reset the game whatever
-            player.style.display = 'block';
+            nameEntry.style.display = 'block';
             game.style.display = 'none';
             difficulty.style.display = 'none';
         } else if (button.id === 'submit') {
@@ -177,7 +184,7 @@ buttonListener.forEach((button) => {
             // do impossible AI whatever
             game.style.display = 'block';
             difficulty.style.display = 'none';
-        }
+        } 
     })
 })
 

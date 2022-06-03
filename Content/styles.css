@@ -236,7 +236,7 @@ body {
     width: 200px;
 }
 
-#back {
+.back {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,6 +244,10 @@ body {
     width: 50px;
     border: 3px solid #6998ab8e;
     color: #6998ab8e;
+}
+
+#game-back {
+    display: flex;
 }
 
 .draw-x {
