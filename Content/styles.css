@@ -62,7 +62,7 @@ body {
 
 .text-container {
     text-align: center;
-    display: block;
+    display: none;
 }
 
 .text-container h1 {

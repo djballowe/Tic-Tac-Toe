@@ -137,6 +137,8 @@ function stateOfPlay() {
 }
 
 function vsAi() {
+    let counter = 0;
+    
     const players = playerCreation(name1.value, name2.value);
     
     const game = [0, 0, 0,
@@ -242,9 +244,17 @@ function vsAi() {
             }
         }
 
-    function aiChoice(positions) {
+    function aiChoice(positions, humanChoice) {
+        newIndex = Math.floor(Math.random() * (8 - 0) + 0)
+        console.log(possibleMoves);
         if (counter === 1) {
-            placeDivs(2, possibleMoves[Math.floor(Math.random() * (8 - 0) + 0)]);
+            while (newIndex === humanChoice) {
+                newIndex = Math.floor(Math.random() * (8 - 0) + 0);
+            }
+            console.log(newIndex);
+            placeDivs(2, possibleMoves[newIndex]);
+            
+
         }
     }
 
@@ -252,15 +262,10 @@ function vsAi() {
         const index = e.target.getAttribute('data-type');
         if (e.target.getAttribute('data') === 'square' && e.target.childElementCount === 0) {
             counter ++;
-            
-            if (counter % 2 !=0) {
-                placeDivs(1, e.target.id);
-                board(index, 'X');
-                
-            } else if (counter % 2 === 0) {
-                aiChoice(game);
-            }
-        } 
+            placeDivs(1, e.target.id);
+            board(index, 'X');
+            aiChoice(game, index, e.target.id);
+        }
     })
 
     //Math.floor(Math.random() * (8 - 0) + 0
@@ -305,6 +310,7 @@ buttonListener.forEach((button) => {
         } else if (button.id === 'computer') {
             player.style.display = 'none';
             game.style.display = 'block';
+            vsAi();
         }
     })
 })
