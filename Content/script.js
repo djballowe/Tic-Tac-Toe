@@ -190,24 +190,19 @@ function vsAi() {
             if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && game[winningCombos[i][2]] === 1) {
                 allCells.classList.add('boardDisable');
                 allCells.classList.remove('board');
-                displayWinner.textContent = `${players[0].n} Wins!`
+                displayWinner.textContent = `You Win!`
                 container.style.display = 'block';
                 playAgain.style.display = 'block'
                 back.style.display = 'none'
-                clearForm();
-                
             }
 
             if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2 && game[winningCombos[i][2]] === 2) {
                 allCells.classList.add('boardDisable');
                 allCells.classList.remove('board');
-                displayWinner.textContent = `${players[1].n} Wins!`
+                displayWinner.textContent = `Computer Wins!`
                 container.style.display = 'block';
                 playAgain.style.display = 'block';
                 back.style.display = 'none';
-                clearForm();
-                
-
             }
         }
         if (counter === 9) {
@@ -245,31 +240,44 @@ function vsAi() {
         }
 
     function aiChoice(humanChoice) {
-        const aiTracker = [];
+        
         humanInt = parseInt(humanChoice);
-        console.log(counter);
+        console.log(humanChoice);
         if (counter === 1) {
             newIndex = Math.floor(Math.random() * (8 - 0) + 0);
             if (newIndex === humanInt) {
                 newIndex += 1;
+                console.log(newIndex);
+                board(newIndex, 'O');
                 placeDivs(2, possibleMoves[newIndex]);
-                aiTracker.push(newIndex);
+                
             } else {
+                console.log(newIndex);
+                board(newIndex, 'O');
                 placeDivs(2, possibleMoves[newIndex]);
-                aiTracker.push(newIndex);
+                
             }  
         } 
         if (counter > 1) {
             for (let i = 0; i < winningCombos.length; i++) {
                 if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1) {
-                    console.log('did nothing');
                     if (document.querySelector(`#${possibleMoves[winningCombos[i][2]]}`).childElementCount === 0) {
+                        console.log('block winner');
                         console.log(possibleMoves[winningCombos[i][2]]);
+                        board(possibleMoves[winningCombos[i][2]], 'O');
                         placeDivs(2, possibleMoves[winningCombos[i][2]]);
                         break;
-                    } else {
-
                     }
+                } else if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2) {
+                        console.log('winning O statement');
+                        board(possibleMoves[winningCombos[i][2]], 'O');
+                        placeDivs(2, possibleMoves[winningCombos[i][2]]);
+                        break;
+                } else {
+                    console.log('last statement');
+                    board(possibleMoves[winningCombos[i][1]], 'O');
+                    placeDivs(2, possibleMoves[winningCombos[i][1]]);
+                    break;
                 }
             }
         }
@@ -281,7 +289,7 @@ function vsAi() {
             counter ++;
             placeDivs(1, e.target.id);
             board(index, 'X');
-            aiChoice(game, index);
+            aiChoice(index);
         }
     })
 
