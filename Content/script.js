@@ -245,14 +245,17 @@ function vsAi() {
         }
 
     function aiChoice(positions, humanChoice) {
-        newIndex = Math.floor(Math.random() * (8 - 0) + 0)
-        console.log(possibleMoves);
+        newIndex = Math.floor(Math.random() * (8 - 0) + 0);
+        humanInt = parseInt(humanChoice);
+        console.log(humanInt);
+        console.log(newIndex);
         if (counter === 1) {
-            while (newIndex === humanChoice) {
-                newIndex = Math.floor(Math.random() * (8 - 0) + 0);
-            }
-            console.log(newIndex);
-            placeDivs(2, possibleMoves[newIndex]);
+            if (newIndex === humanInt) {
+                newIndex += 1;
+                placeDivs(2, possibleMoves[newIndex]);
+            } else {
+                placeDivs(2, possibleMoves[newIndex]);
+            }  
             
 
         }

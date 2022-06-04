@@ -180,7 +180,7 @@ body {
 /* Game */
 
 .game {
-    display: none;
+    display: block;
 }
 
 .board {
