@@ -244,20 +244,34 @@ function vsAi() {
             }
         }
 
-    function aiChoice(positions, humanChoice) {
-        newIndex = Math.floor(Math.random() * (8 - 0) + 0);
+    function aiChoice(humanChoice) {
+        const aiTracker = [];
         humanInt = parseInt(humanChoice);
-        console.log(humanInt);
-        console.log(newIndex);
+        console.log(counter);
         if (counter === 1) {
+            newIndex = Math.floor(Math.random() * (8 - 0) + 0);
             if (newIndex === humanInt) {
                 newIndex += 1;
                 placeDivs(2, possibleMoves[newIndex]);
+                aiTracker.push(newIndex);
             } else {
                 placeDivs(2, possibleMoves[newIndex]);
+                aiTracker.push(newIndex);
             }  
-            
+        } 
+        if (counter > 1) {
+            for (let i = 0; i < winningCombos.length; i++) {
+                if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1) {
+                    console.log('did nothing');
+                    if (document.querySelector(`#${possibleMoves[winningCombos[i][2]]}`).childElementCount === 0) {
+                        console.log(possibleMoves[winningCombos[i][2]]);
+                        placeDivs(2, possibleMoves[winningCombos[i][2]]);
+                        break;
+                    } else {
 
+                    }
+                }
+            }
         }
     }
 
@@ -267,7 +281,7 @@ function vsAi() {
             counter ++;
             placeDivs(1, e.target.id);
             board(index, 'X');
-            aiChoice(game, index, e.target.id);
+            aiChoice(game, index);
         }
     })
 
