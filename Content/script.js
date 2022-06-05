@@ -240,7 +240,7 @@ function vsAi() {
         }
 
     function aiChoice(humanChoice) {
-        
+        console.log(`turn ${counter}`)
         humanInt = parseInt(humanChoice);
         console.log(humanChoice);
         if (counter === 1) {
@@ -259,29 +259,41 @@ function vsAi() {
             }  
         } 
         if (counter > 1) {
+            let moveCheck = 0;
+            
             for (let i = 0; i < winningCombos.length; i++) {
-                if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1) {
-                    if (document.querySelector(`#${possibleMoves[winningCombos[i][2]]}`).childElementCount === 0) {
-                        console.log('block winner');
-                        console.log(possibleMoves[winningCombos[i][2]]);
-                        board(possibleMoves[winningCombos[i][2]], 'O');
-                        placeDivs(2, possibleMoves[winningCombos[i][2]]);
-                        break;
-                    }
-                } else if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2) {
-                        console.log('winning O statement');
-                        board(possibleMoves[winningCombos[i][2]], 'O');
-                        placeDivs(2, possibleMoves[winningCombos[i][2]]);
-                        break;
-                } else {
-                    console.log('last statement');
-                    board(possibleMoves[winningCombos[i][1]], 'O');
-                    placeDivs(2, possibleMoves[winningCombos[i][1]]);
+                if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2 && moveCheck === 0 && document.querySelector(`#${possibleMoves[winningCombos[i][2]]}`).childElementCount === 0) {
+                    console.log('winning O statement');
+                    board(possibleMoves[winningCombos[i][2]], 'O');
+                    placeDivs(2, possibleMoves[winningCombos[i][2]]);
+                    moveCheck++;
                     break;
+                    }
+                }   
+                for (let i = 0; i < winningCombos.length; i++) {
+                    if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && moveCheck === 0 && document.querySelector(`#${possibleMoves[winningCombos[i][2]]}`).childElementCount === 0) {
+                            console.log('block winner');
+                            console.log(possibleMoves[winningCombos[i][2]]);
+                            board(possibleMoves[winningCombos[i][2]], 'O');
+                            placeDivs(2, possibleMoves[winningCombos[i][2]]);
+                            moveCheck++;
+                            break;
+                } 
+            }
+                for (let i = 0; i < winningCombos.length; i++) {
+                    if (moveCheck === 0 && document.querySelector(`#${possibleMoves[winningCombos[i][1]]}`).childElementCount === 0) {
+                        console.log('last statement');
+                        console.log(possibleMoves[winningCombos[i][1]]);
+                        board(possibleMoves[winningCombos[i][1]], 'O');
+                        placeDivs(2, possibleMoves[winningCombos[i][1]]);
+                        moveCheck++;
+                        break;
                 }
             }
+            moveCheck --;
         }
     }
+
 
     document.querySelector('body').addEventListener('click', function(e) {
         const index = e.target.getAttribute('data-type');
