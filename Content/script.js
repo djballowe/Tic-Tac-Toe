@@ -139,8 +139,6 @@ function stateOfPlay() {
 function vsAi() {
     let counter = 0;
     
-    const players = playerCreation(name1.value, name2.value);
-    
     const game = [0, 0, 0,
                   0, 0, 0,
                   0, 0, 0]
@@ -175,6 +173,7 @@ function vsAi() {
         } else if (type === 'O') {
             game[index] = 2;
         }
+        console.log(game);
         winCheck(game);
     }
  
@@ -185,6 +184,7 @@ function vsAi() {
         const container = document.getElementById('container');
         const playAgain = document.getElementById('play-again');
         const back = document.getElementById('game-back');
+        console.log(`turn ${counter}`)
 
         for (let i = 0; i < winningCombos.length; i++) {
             if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && game[winningCombos[i][2]] === 1) {
@@ -240,10 +240,10 @@ function vsAi() {
         }
 
     function aiChoice(humanChoice) {
-        console.log(`turn ${counter}`)
+        counter++;
         humanInt = parseInt(humanChoice);
         console.log(humanChoice);
-        if (counter === 1) {
+        if (counter === 2) {
             newIndex = Math.floor(Math.random() * (8 - 0) + 0);
             if (newIndex === humanInt) {
                 newIndex += 1;
@@ -258,13 +258,13 @@ function vsAi() {
                 
             }  
         } 
-        if (counter > 1) {
+        if (counter > 2) {
             let moveCheck = 0;
             
             for (let i = 0; i < winningCombos.length; i++) {
                 if (game[winningCombos[i][0]] === 2 && game[winningCombos[i][1]] === 2 && moveCheck === 0 && document.querySelector(`#${possibleMoves[winningCombos[i][2]]}`).childElementCount === 0) {
                     console.log('winning O statement');
-                    board(possibleMoves[winningCombos[i][2]], 'O');
+                    board([winningCombos[i][2]], 'O');
                     placeDivs(2, possibleMoves[winningCombos[i][2]]);
                     moveCheck++;
                     break;
@@ -274,7 +274,7 @@ function vsAi() {
                     if (game[winningCombos[i][0]] === 1 && game[winningCombos[i][1]] === 1 && moveCheck === 0 && document.querySelector(`#${possibleMoves[winningCombos[i][2]]}`).childElementCount === 0) {
                             console.log('block winner');
                             console.log(possibleMoves[winningCombos[i][2]]);
-                            board(possibleMoves[winningCombos[i][2]], 'O');
+                            board([winningCombos[i][2]], 'O');
                             placeDivs(2, possibleMoves[winningCombos[i][2]]);
                             moveCheck++;
                             break;
@@ -284,13 +284,14 @@ function vsAi() {
                     if (moveCheck === 0 && document.querySelector(`#${possibleMoves[winningCombos[i][1]]}`).childElementCount === 0) {
                         console.log('last statement');
                         console.log(possibleMoves[winningCombos[i][1]]);
-                        board(possibleMoves[winningCombos[i][1]], 'O');
+                        board([winningCombos[i][1]], 'O');
                         placeDivs(2, possibleMoves[winningCombos[i][1]]);
                         moveCheck++;
                         break;
                 }
             }
-            moveCheck --;
+            moveCheck--;
+            console.log(moveCheck);
         }
     }
 
