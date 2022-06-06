@@ -62,7 +62,7 @@ body {
 
 .text-container {
     text-align: center;
-    display: none;
+    display: block;
 }
 
 .text-container h1 {
@@ -180,7 +180,7 @@ body {
 /* Game */
 
 .game {
-    display: block;
+    display: none;
 }
 
 .board {

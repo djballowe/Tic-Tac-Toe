@@ -203,16 +203,15 @@ function vsAi() {
                 container.style.display = 'block';
                 playAgain.style.display = 'block';
                 back.style.display = 'none';
+            } else if (counter === 9) {
+                allCells.classList.add('boardDisable');
+                allCells.classList.remove('board');
+                displayWinner.textContent = `Tie!`
+                container.style.display = 'block';
+                playAgain.style.display = 'block';
+                back.style.display = 'none';
+                clearForm();
             }
-        }
-        if (counter === 9) {
-            allCells.classList.add('boardDisable');
-            allCells.classList.remove('board');
-            displayWinner.textContent = `Tie!`
-            container.style.display = 'block';
-            playAgain.style.display = 'block';
-            back.style.display = 'none';
-            clearForm();
         }
     }
 
